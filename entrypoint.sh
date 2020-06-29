@@ -9,12 +9,12 @@ if [[ -z "$INPUT_GITHUB_TOKEN" ]]; then
   exit 1
 fi
 
-echo $INPUT_GITHUB_TOKEN
+echo "token: $INPUT_GITHUB_TOKEN"
 
 git config --global url."https://$INPUT_GITHUB_TOKEN:@github.com/".insteadOf https://github.com/
 
-git config user.email "copy-files-action@solo.io"
-git config user.name "copy-files-action"
+git config --global user.email "copy-files-action@solo.io"
+git config --global user.name "copy-files-action"
 
 echo "Clone solo-apis..."
 git clone https://github.com/solo-io/solo-apis.git
@@ -34,6 +34,10 @@ git add .
 
 git status
 
+echo "Commit..."
 git commit -m "test"
 
+echo "Push..."
 git push -u origin test-action
+
+echo "Done"
