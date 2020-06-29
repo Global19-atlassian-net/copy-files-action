@@ -11,6 +11,9 @@ fi
 
 git config --global url."https://$INPUT_GITHUB_TOKEN:@github.com/".insteadOf https://github.com/
 
+git config --global user.email "copy-files-action@solo.io"
+git config --global user.name "copy-files-action"
+
 echo "Clone solo-apis..."
 git clone https://github.com/solo-io/solo-apis.git
 
