@@ -9,7 +9,7 @@ if [[ -z "$INPUT_GITHUB_TOKEN" ]]; then
   exit 1
 fi
 
-RUN git config --global url."https://$INPUT_GITHUB_TOKEN:@github.com/".insteadOf https://github.com/
+git config --global url."https://$INPUT_GITHUB_TOKEN:@github.com/".insteadOf https://github.com/
 
 echo "Clone solo-apis..."
 git clone https://github.com/solo-io/solo-apis.git
