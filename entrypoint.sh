@@ -4,12 +4,12 @@
 set -e
 set -o pipefail
 
-if [[ -z "$GITHUB_TOKEN" ]]; then
+if [[ -z "$INPUT_GITHUB_TOKEN" ]]; then
   echo "Set the GITHUB_TOKEN env variable."
   exit 1
 fi
 
-RUN git config --global url."https://$GITHUB_TOKEN:@github.com/".insteadOf https://github.com/
+RUN git config --global url."https://$INPUT_GITHUB_TOKEN:@github.com/".insteadOf https://github.com/
 
 echo "Clone solo-apis..."
 git clone https://github.com/solo-io/solo-apis.git
